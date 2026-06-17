@@ -11,7 +11,7 @@ def load_data():
 
 # Função para executar o script Python
 def run_python_script():
-    subprocess.run("python -m pipeline.pipeline")
+    subprocess.Popen(["uv", "run", "python", "-m", "pipeline.pipeline"])
 
 
 # Layout do aplicativo Streamlit
