@@ -4,11 +4,11 @@ from airflow.providers.standard.operators.python import PythonOperator
 from datetime import datetime
 
 def helloWorld():
-    print('Hello World')
+    print('Hello World my friends 🚀')
 
 with DAG(dag_id="hello_world_dag",
          start_date=datetime(2021,1,1),
-         schedule_interval="@hourly",
+         schedule="* * * * *",
          catchup=False) as dag:
 
         task1 = PythonOperator(
