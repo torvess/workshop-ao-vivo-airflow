@@ -3,7 +3,7 @@ from airflow.decorators import dag, task
 from datetime import datetime
 
 @dag(
-    dag_id='minha_terceira_dag',
+    dag_id='minha_quinta_dag',
     start_date=datetime(2021, 1, 1),
     schedule='@daily',
     catchup=False
@@ -35,6 +35,7 @@ def pipeline():
     t3 = terceira_atividade()
     t4 = quarta_atividade()
 
-    t1 >> t2 >> t3 >> t4
+    t1.set_downstream([t2, t3])
+    t3.set_upstream(t4)
 
 pipeline()
